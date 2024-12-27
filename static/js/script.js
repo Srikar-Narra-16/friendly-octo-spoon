@@ -1,4 +1,4 @@
-let isSolutionShown = false; // Track if the solution was shown
+let isSolutionShown = false;
 
 function generateNewPuzzle() {
     const difficulty = getDifficulty();
@@ -11,8 +11,8 @@ function generateNewPuzzle() {
     .then(response => response.json())
     .then(puzzle => {
         updateBoard(puzzle);
-        enableCheckAnswer(); // Re-enable the "Check Answer" button when a new puzzle is generated
-        isSolutionShown = false; // Reset the flag
+        enableCheckAnswer(); 
+        isSolutionShown = false; 
     })
     .catch(error => console.error('Error fetching new puzzle:', error));
 }
@@ -22,8 +22,8 @@ function showSolution() {
         .then(response => response.json())
         .then(solution => {
             updateBoard(solution);
-            disableCheckAnswer(); // Disable the "Check Answer" button after showing the solution
-            isSolutionShown = true; // Set the flag to indicate the solution was shown
+            disableCheckAnswer(); 
+            isSolutionShown = true; 
         })
         .catch(error => console.error('Error fetching solution:', error));
 }
@@ -84,7 +84,7 @@ function updateDifficultyLabel(value) {
     label.textContent = value == 1 ? 'Easy' : value == 2 ? 'Medium' : 'Hard';
 }
 
-// Utility functions to disable and enable the "Check Answer" button
+
 function disableCheckAnswer() {
     const checkAnswerButton = document.querySelector('button[onclick="checkAnswer()"]');
     checkAnswerButton.disabled = true;
